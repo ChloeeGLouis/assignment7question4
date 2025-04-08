@@ -21,6 +21,7 @@ void eat(int phil_id) {
 void* philosopher(void* arg) {
     int phil_id = *(int*)arg;
     while (1) {
+        think(1);
         sem_wait(&forks[phil_id]);
         printf("Philosopher %d has picked up the left fork.\n", phil_id);
         sem_wait(&forks[phil_id+1]);
